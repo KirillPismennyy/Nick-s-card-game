@@ -6,7 +6,7 @@ width = 400
 height = round(width / 0.715)
 im = Image.new("RGB", (width,height))
 im.save("Image1.png")
-
+#Hello, is this Nick's Burgers?
 d = ImageDraw.Draw(im)
 fnt = ImageFont.truetype('NewYork.ttf', 50)
 #get
