@@ -9,12 +9,22 @@ im.save("Image1.png")
 #Hello, is this Nick's Burgers?
 #I'm sorry, I just wanted a double cheeseburger
 d = ImageDraw.Draw(im)
-fnt = ImageFont.truetype('NewYork.ttf', 50)
 #get
-d.text((0.75*width, 0.15*height),monsterName, fill=(255,255,55))
-e = ImageDraw.Draw(im)
-e.text((0.75*width, 0.14*height),"HP:", fill=(255,255,65))
-f = ImageDraw.Draw(im)
-f.text((0.78*width, 0.14*height),(monsterHealthInsurance), fill=(255,255,65))
+fnt = ImageFont.truetype('arial.ttf', 10)
+i = 10 #chage starting font here
+while fnt.getsize("HP:")[0]+fnt.getsize(monsterHealthInsurance)[0] < 42:
+    i = i + 1
+    fnt = ImageFont.truetype('arial.ttf', i)
+    print(i)
+fnt = ImageFont.truetype('arial.ttf', i-1)
 
+d.text((0.75*width, 0.12*height),monsterName, font=fnt, fill=(255,255,55))
+e = ImageDraw.Draw(im)
+
+height_of_name = fnt.getsize(monsterName)[1]
+position = 0.14*height+fnt.getsize("HP:"+monsterHealthInsurance)[1]
+e.text((0.75*width, position),"HP:"+monsterHealthInsurance, font=fnt, fill=(255,255,65))
+#f = ImageDraw.Draw(im)
+#f.text((0.78*width, 0.14*height),(monsterHealthInsurance), font=fnt, fill=(255,255,65))
+#we need moves, a type, strengths, weaknesses, abilities, and ditto
 im.show()
