@@ -27,4 +27,13 @@ e.text((0.75*width, position),"HP:"+monsterHealthInsurance, font=fnt, fill=(255,
 #f = ImageDraw.Draw(im)
 #f.text((0.78*width, 0.14*height),(monsterHealthInsurance), font=fnt, fill=(255,255,65))
 #we need moves, a type, strengths, weaknesses, abilities, and ditto
+
+#new_im = Image.open("Pika.jpg")
+poke_pic = Image.open("Pika.jpg")
+# This resizes the picture without keeping scale ratio
+poke_pic = poke_pic.resize((632,450))
+#Pasting poke pic
+im.paste(poke_pic, (50,100))
+
+    
 im.show()
